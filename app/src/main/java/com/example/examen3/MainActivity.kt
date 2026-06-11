@@ -42,7 +42,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener {
-            startActivity(Intent(this, SignUpActivity::class.java))
+            val nombre = binding.etNombre.text.toString().trim()
+
+            if (nombre.isEmpty()) {
+                startActivity(Intent(this, SignUpActivity::class.java))
+                return@setOnClickListener
+            }
+
+            val dao = MyApplication.getDatabase(this).usuarioDao()
+            if (dao.buscarPorNombre(nombre) != null) {
+                Toast.makeText(this, "El usuario ya está registrado", Toast.LENGTH_SHORT).show()
+            } else {
+                startActivity(Intent(this, SignUpActivity::class.java))
+            }
         }
     }
 }
