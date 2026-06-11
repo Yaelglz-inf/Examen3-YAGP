@@ -16,7 +16,8 @@ class MyApplication : Application() {
                     AppDatabase::class.java,
                     "usuarios-db"
                 )
-
+                    .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration(true)
                     .build()
                 INSTANCE = instance
                 instance

@@ -6,6 +6,7 @@ import androidx.room.Query
 import androidx.room.Update
 import com.example.examen3.model.Usuario
 
+//me equivoque e hice esto antes de hacer el commit anterior por eso ahora en el commit d ela actividad 4 no va a cambiar esta parte profesor
 @Dao
 interface UsuarioDao {
 
