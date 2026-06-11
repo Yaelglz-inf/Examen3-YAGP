@@ -16,6 +16,7 @@ class MyApplication : Application() {
                     AppDatabase::class.java,
                     "usuarios-db"
                 )
+
                     .build()
                 INSTANCE = instance
                 instance
